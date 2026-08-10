@@ -2,4 +2,4 @@
 
 e-plantShopping 
 
-This is a Plant shopping website prototype
+This is a Plant shopping website prototype.
