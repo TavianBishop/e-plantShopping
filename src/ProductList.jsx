@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
+import { useDispatch } from 'react-redux';
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
-
+    const [addToCart,setAddedToCart ]= useState({});
+    const dispatch = useDispatch();
     const plantsArray = [
         {
             category: "Air Purifying Plants",
@@ -252,6 +254,15 @@ function ProductList({ onHomeClick }) {
         e.preventDefault();
         setShowCart(false);
     };
+    
+    const handleAddToCart = (product) => {
+        dispatch(addItem(product));
+        setAddedToCart((prevState) => ({
+            ...prevState,
+            [product.name]: true,
+        }));
+    };
+
     return (
         <div>
             <div className="navbar" style={styleObj}>
@@ -273,16 +284,9 @@ function ProductList({ onHomeClick }) {
                 </div>
             </div>
             {!showCart ? (
-                const [addToCart,setAddedToCart ]= useState({});
-                const handleAddToCart = (product) =>{
-                    dispatch(addItem(product));
+                
+                
 
-                    setAddedToCart((prevState) => ({
-                      ...prevState,
-                      [product.name] : true,
-                    }));
-                }; 
-                 
                 <div className="product-grid">
                  {plantsArray.map((category, index) => ( // Loop through each category in plantsArray
                     <div key={index}> {/* Unique key for each category div */}
