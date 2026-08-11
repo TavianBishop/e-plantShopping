@@ -18,11 +18,16 @@ export const CartSlice = createSlice({
         state.items.push({name,image,cost,quantiy:1})
     }
     },
+    //remove iten reducer
     removeItem: (state, action) => {
-        state.items = state.items.filter(item =>  item !== action.payload);
+        state.items = state.items.filter(item =>  item !== action.payload); 
     },
     updateQuantity: (state, action) => {
-
+        const {name,quantity} = action.payload;
+        const exisitngItem = state.items.find((item) => item.name === name);
+        if(exisitngItem){
+            exisitngItem.quantity = quantity;
+        }
     
     },
   },
