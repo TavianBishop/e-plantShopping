@@ -250,3 +250,8 @@ body {
         text-align: center; /* Align text to the center */
       }
   }
+
+  .added-to-cart {
+  background-color: grey;
+  cursor: not-allowed;
+}
