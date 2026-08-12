@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './ProductList.css'
 import CartItem from './CartItem';
-import { useDispatch } from 'react-redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { addItem } from './CartSlice';
 function ProductList({ onHomeClick }) {
@@ -15,7 +14,7 @@ function ProductList({ onHomeClick }) {
         };
 
 
-        
+
     const plantsArray = [
         {
             category: "Air Purifying Plants",
